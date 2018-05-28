@@ -1,10 +1,84 @@
 {% extends "base.html" %}
 
+{% load static %}
+
+{% block title %}<title>Inicia Sesión</title>{% endblock %}
+
+
+{% block base_head %}
+
+
+	<!--modificar etiquetas ///////////////////////// -->
+
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Portrait Login Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements"
+	/>
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- Meta tag Keywords -->
+	<!-- css files -->
+	<link rel="stylesheet" href="{% static 'css/Login_style.css' %}" type="text/css" media="all" />
+	<!-- Style-CSS -->
+	<link rel="stylesheet" href="{% static 'css/Login.css' %}">
+	<!-- Font-Awesome-Icons-CSS -->
+	<!-- //css files -->
+	<!-- online-fonts -->
+
+	<!-- Carpeta fonts?//////////////////////////////// -->	
+	<link href="//fonts.googleapis.com/css?family=Tangerine:400,700" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+	<!-- //online-fonts -->
+{% endblock %}
+
+
 {% block content %}
-<h1>Login</h1>
-    <form method='POST'> {% csrf_token %}
-      {{ form }}
-      <button type='submit' class='btn btn-default'>Submit</button>
-    </form>
+<div class="main-content-agile">
+		<div class="sub-main-w3">
+			<img src="{% static 'img/Logo.jpg' %}" alt="" />
+			<p> <br> </p>
+			<form action="#" method="post">
+  			{% csrf_token %}
+
+				<div class="pom-agile">
+					<span class="fa fa-user-o" aria-hidden="true"></span>
+					<input placeholder="Usuario" name="username" class="user" type="text" required="">
+				</div>
+				<div class="pom-agile">
+					<span class="fa fa-key" aria-hidden="true"></span>
+					<input placeholder="Contraseña" name="password" class="pass" type="password" required="">
+				</div>
+				<div class="sub-w3l">
+					<div class="sub-agile">
+						<input type="checkbox" id="brand1" value="">
+						<label for="brand1">
+							<span></span>Recuérdame</label>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="right-w3l">
+					<input type="submit" value="INICIA SESIÓN">
+				</div>
+				<div class="forgot-w3l">
+					<a href="#">¿Olvidaste tu Contraseña?</a>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!--//main-->
+	<!--footer-->
+	<div class="footer">
+		<p>&copy; 2018 Diseñado Por
+			<a href="http://w3layouts.com">W3layouts</a> | Modificado Por VentasBap
+		</p>
+	</div>
 
 {% endblock %}
