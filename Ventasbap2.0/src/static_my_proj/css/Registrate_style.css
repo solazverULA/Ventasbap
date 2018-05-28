@@ -4,7 +4,7 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
-
+<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet"> 
 /* reset */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
 article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
@@ -31,6 +31,7 @@ img{max-width:100%;}
 
 body {
 	background:url(../img/Registro_Imagen.jpg) no-repeat;
+	background-color: white;
 	background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -41,12 +42,13 @@ body {
 	height: 100vh;
 	font-family: 'Hind Siliguri', sans-serif;
 }
+
 h1.w3layouts {
     text-align: center;
 	font-size: 4.2em;
     color: #13007D;
     margin: 37px 0;
-    font-family: 'Tangerine', cursive;
+    font-family: 'Gloria Hallelujah', cursive;
     letter-spacing: 2px;
     float: right;
     width: 52%;
