@@ -91,9 +91,7 @@
 				</div>-->
 				<div class="agileits-left">
 					<input type="email" name="email" class="email" placeholder="Correo Electrónico" required="">
-					{% if form.email.errors %}
-						<h1>error email</h1>
-					{% endif %}
+					{{ form.email.errors }}
 				</div>
 				<!--<div class="agileits-left">
 					<input type="text" name="name" class="username" placeholder="Dirección de Envío" required="">
@@ -116,7 +114,7 @@
 				</div>
 				
 				<div class="submit-w3l">
-					<input type="submit" value="REGISTRATE">
+					<input name="register" type="submit" value="REGISTRATE">
 				</div>
 			</form>
 

@@ -51,10 +51,16 @@
 				<div class="pom-agile">
 					<span class="fa fa-user-o" aria-hidden="true"></span>
 					<input placeholder="Usuario" name="username" class="user" type="text" required="">
+					{% if form.username.errors %}
+						<h1>error usuario</h1>
+					{% endif %}
 				</div>
 				<div class="pom-agile">
 					<span class="fa fa-key" aria-hidden="true"></span>
 					<input placeholder="Contraseña" name="password" class="pass" type="password" required="">
+					{% if form.password.errors %}
+						<h1>error contraseña</h1>
+					{% endif %}
 				</div>
 				<div class="sub-w3l">
 					<div class="sub-agile">
@@ -65,7 +71,7 @@
 					<div class="clear"></div>
 				</div>
 				<div class="right-w3l">
-					<input type="submit" value="INICIA SESIÓN">
+					<input name="login" type="submit" value="INICIA SESIÓN">
 				</div>
 				<div class="forgot-w3l">
 					<a href="#">¿Olvidaste tu Contraseña?</a>

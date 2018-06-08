@@ -10,15 +10,15 @@ class GuestForm(forms.Form):
 
 class LoginForm(forms.Form):
     username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)
+    password = forms.CharField(min_length=8)
 
 
 
 class RegisterForm(forms.Form):
     username = forms.CharField()
     email    = forms.EmailField()
-    password = forms.CharField(widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Confirm password', widget=forms.PasswordInput)
+    password = forms.CharField(min_length=8)
+    password2 = forms.CharField(label='Confirm password', min_length=8)
 
     def clean_username(self):
         username = self.cleaned_data.get('username')
