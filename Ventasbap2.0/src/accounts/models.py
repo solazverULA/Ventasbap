@@ -15,7 +15,10 @@ class UserManager(BaseUserManager):
             email=self.normalize_email(email),
             full_name=full_name,
             city=city,
-            ci=ci
+            ci=ci,
+            sex=sex,
+            age=age,
+            cellphone=cellphone
         )
         user_obj.set_password(password)  # change user password
         user_obj.staff = is_staff
@@ -48,10 +51,10 @@ class User(AbstractBaseUser):
     email = models.EmailField(max_length=255, unique=True)
     full_name = models.CharField(max_length=255, blank=True, null=True)
     city = models.CharField(max_length=255, blank=True, null=True)
-    ci = models.IntegerField()
+    ci = models.IntegerField(null=True)
     sex = models.CharField(max_length=10, blank=True, null=True)
-    age = models.IntegerField()
-    cellphone= models.IntegerField()
+    age = models.IntegerField(null=True)
+    cellphone= models.IntegerField(null=True)
     active = models.BooleanField(default=True)  # can login
     staff = models.BooleanField(default=False)  # staff user non superuser
     admin = models.BooleanField(default=False)  # superuser
