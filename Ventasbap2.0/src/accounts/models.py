@@ -68,7 +68,7 @@ class User(AbstractBaseUser):
     city = models.CharField(max_length=255, blank=True, null=True)
     ci = models.PositiveIntegerField(null=True)
     sex = models.CharField(max_length=10, blank=True, null=True)
-    bday = models.IntegerField(null=True)
+    bday = models.DateField(null=True)
     cellphone = models.PositiveIntegerField(null=True)
     is_active = models.BooleanField(default=True)  # can login
     staff = models.BooleanField(default=False)  # staff user non superuser
