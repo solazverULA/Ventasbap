@@ -1,72 +1,424 @@
 {% extends "base.html" %}
+
+{% url 'home' as home_url %}
+{% url 'contact' as contact_url %}
+{% url 'products:list' as product_list_url %}
+{% url 'login' as login_url %}
+{% url 'register' as register_url %}
+
 {% load static %}
 
-<title>Home Page Template</title>
-
+{% block title %}<title>Ventasbap</title>{% endblock %}
+ 
 {% block base_head %}
-<link rel='stylesheet' href='{% static "css/main.css" %}' >
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="Food Recipe a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+  Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+  
+  <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+      function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+  <!-- //custom-theme -->
+  <link href="{% static 'css/VentasBap_bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+
+  <!-- for banner css -->
+  <link href="{% static 'css/VentasBap_carousel.css' %}" type="text/css" rel="stylesheet" media="all"><!-- carousel css -->  
+  <!-- //for banner css -->
+
+  <link rel="stylesheet" href="{% static 'css/VentasBap_owl.carousel.css' %}" type="text/css" media="all"/> <!-- Owl-Carousel-CSS -->
+
+  <link href="{% static 'css/VentasBap_style.css' %}" rel="stylesheet" type="text/css" media="all" /><!-- Theme-CSS -->
+
+  <link rel="stylesheet" href="{% static 'css/VentasBap_flexslider.css' %}" type="text/css" media="screen" property="" /> <!-- Flexslider-CSS -->
+
+  <!-- js -->
+  <script type="text/javascript" src="{% static 'js/VentasBap_jquery-2.1.4.min.js' %}"></script>
+  <!-- //js -->
+
+  <!-- font-awesome-icons -->
+  <link rel="stylesheet" href="{% static 'css/VentasBap_font-awesome.min.css' %}" />
+  <!-- //font-awesome-icons -->
+
+  <!-- google fonts -->
+  <link href="//fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+  <link href="//fonts.googleapis.com/css?family=Muli:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+  <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+  <!-- //google fonts -->
 {% endblock %}
 
 {% block content %}
-<div class='text-center'>
-    <h1>{{ title }}</h1>
-    <h1>Hello, world we're working!</h1>
-</div>
 
-<div class='row'>
-  <div class='col'>
-      <img src="{% static 'img/beach.jpg' %}" class='img-fluid' />
-      <p>{{ content }}</p>
-  </div>
-</div>
 {% if request.user.is_authenticated %}
-<div class='row'>
-  <div class='col'>
-  <h1>Premium</h1>
-  {{ premium_content }}
+ <!-- Hi {{ user.username }}-->
+
+<div class="banner-header">
+    <!--header-->
+    <div class="header">
+    <div class="container-fluid">
+      <nav class="navbar navbar-default">
+        <div class="navbar-header navbar-right">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <nav>
+            <ul class="nav navbar-nav mr-auto">
+              <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
+              <!--<li><h1>Hola, {{ user.username }} </li>-->
+            </ul>
+          </nav>
+        </div>
+      </nav>  
+    </div>
   </div>
+    <!--//header-->
+</div>
+{% else %}
+<div class="banner-header">
+    <!--header-->
+    <div class="header">
+    <div class="container-fluid">
+      <nav class="navbar navbar-default">
+        <div class="navbar-header navbar-right">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <nav>
+            <ul class="nav navbar-nav mr-auto">
+              <li><a href="{% url 'login' %}">Iniciar Sesión</a></li>
+              <li><a href="{% url 'register' %}">Registrarse</a></li>
+            </ul>
+          </nav>
+        </div>
+      </nav>  
+    </div>
+  </div>
+    <!--//header-->
 </div>
 {% endif %}
 
 
+<!-- slider -->
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+      <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+      <li data-target="#myCarousel" data-slide-to="3" class=""></li>
+      <li data-target="#myCarousel" data-slide-to="4" class=""></li>
+    </ol>
+
+    <div class="carousel-inner" role="listbox">
+      <div class="item active"> 
+        <!--<div class="banner-dott">
+        <div class="container">
+          <div class="carousel-caption">
+            <h3>There's no sincerer love than</h3>
+            <h4>The Love of food</h4>
+            <div class="contrast">
+                <p> Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.</p>
+             </div>
+          < <div class="thim-click-to-bottom">
+              <a href="#about" class="scroll">
+                <i class="fa  fa-chevron-down"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        </div>-->
+      </div>
+      <div class="item item1"> 
+      </div>
+      <div class="item item2"> 
+      </div>
+      <div class="item item3"> 
+      </div>
+      
+      <div class="item item4"> 
+      </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+    </div> 
+  <!-- //slider -->
+
+<!--  Modificar ///////////////////////////////////////////
+<div class="footer w3ls">
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-top">
+        <div class="col-md-4 ftr-grid fg1">
+          <h3>opening timings</h3>
+          <p><span class="fa fa-clock-o" aria-hidden="true"></span><span>Mon - friday</span> : 9am to 8pm</p>
+          <p><span class="fa fa-clock-o" aria-hidden="true"></span><span>Saturday</span> : 9am to 5pm</p>
+          <p><span class="fa fa-clock-o" aria-hidden="true"></span><span>Sunday</span> : 6am to 11pm</p>
+        </div>
+        <div class="col-md-4 ftr-grid fg2 mid-gd">
+          <h3>Our Address</h3>
+          <div class="ftr-address">
+            <div class="local">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+            </div>
+            <div class="ftr-text">
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="clearfix"> </div>
+          </div>
+          <div class="ftr-address">
+            <div class="local">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+            </div>
+            <div class="ftr-text">
+              <p>+1 (512) 154 8176</p>
+            </div>
+            <div class="clearfix"> </div>
+          </div>
+          <div class="ftr-address">
+            <div class="local">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+            </div>
+            <div class="ftr-text">
+              <p><a href="mailto:info@example.com">info@example.com</a></p>
+            </div>
+            <div class="clearfix"> </div>
+          </div>
+        </div>
+        <div class="col-md-4 ftr-grid fg2">
+          <h3>Recent posts</h3>
+          <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.</p>
+          <div class="more-button">
+            <a href="#">Read more</a>
+          </div>
+        </div>
+         <div class="clearfix"> </div>
+      </div>
+      
+    </div>
+  </div>
+</div> -->
+
+<!-- special -->
+<a href="{% url 'cart:home' %}"><div class="cart"><img src="{% static 'img/cart.png' %}"></div></a>
+  <div class="special">
+    <div class="container">
+    <h2 class="heading">Artículos <span>Disponibles</span></h2>
+      <div class="special-grids">
+       <a href="{% url 'products:list' %}">
+        <div class="col-md-6 w3l-special-grid">
+          <div class="col-md-6 w3ls-special-img wthree-img1">
+            <div class="w3ls-special-text effect-1">
+              <!-- <h4>$ 12.00</h4>-->
+            </div>
+          </div>
+          <div class="col-md-6 agileits-special-info">
+            <h4>Artículos para Damas </h4>
+          </div>
+          <div class="clearfix"> </div>
+        </div>
+        </a>
+        <div class="col-md-6 w3l-special-grid">
+          <div class="col-md-6 w3ls-special-img wthree-img2">
+            <div class="w3ls-special-text effect-1">
+            <!--  <h4>$ 16.00</h4>-->
+            </div>
+          </div>
+          <div class="col-md-6 agileits-special-info-2">
+            <h4>Artículos para Caballeros</h4>
+          </div>
+          <div class="clearfix"> </div>
+        </div>
+          <div class="col-md-6 w3l-special-grid">
+          <div class="col-md-6 agileits-special-info-3">
+            <h4>Artículos para Niños</h4>
+          </div>
+          <div class="col-md-6 w3ls-special-img wthree-img3">
+            <div class="w3ls-special-text effect-1">
+              <!--<h4>$ 14.00</h4>-->
+            </div>
+          </div>
+          
+          <div class="clearfix"> </div>
+        </div>
+        <div class="col-md-6 w3l-special-grid">
+          <div class="col-md-6 agileits-special-info-4">
+            <h4>Promociones y Ofertas</h4>
+          </div>
+          <div class="col-md-6 w3ls-special-img wthree-img4">
+            <div class="w3ls-special-text effect-1">
+            <!--  <h4>$ 21.00</h4>-->
+            </div>
+          </div>
+        
+          <div class="clearfix"> </div>
+        </div>  
+        <div class="clearfix"> </div>
+      </div>
+    </div>
+  </div>
+<!-- //special -->
+
+<!-- special -->
+  <div class="special">
+    <div class="container">
+    <h2 class="heading">Acerca <span>De Nosotros</span></h2>
+      <div class="special-grids">
+        <div class="col-md-6 w3l-special-grid">
+          <div class="col-md-6 w3ls-special-img wthree-img5">
+            <div class="w3ls-special-text effect-1">
+            <!--  <h4>$ 12.00</h4>-->
+            </div>
+          </div>
+          <div class="col-md-6 agileits-special-info-5">
+            <h4>¿Quiénes Somos?</h4>
+          </div>
+          <div class="clearfix"> </div>
+        </div>
+        <div class="col-md-6 w3l-special-grid">
+          <div class="col-md-6 w3ls-special-img wthree-img6">
+            <div class="w3ls-special-text effect-1">
+              <!-- <h4>$ 16.00</h4>-->
+            </div>
+          </div>
+          <div class="col-md-6 agileits-special-info-2">
+            <h4>Comentarios de Nuestros Clientes </h4>
+          </div>
+          <div class="clearfix"> </div>
+        </div>
+       <a href="{% url 'contact' %}">
+
+          <div class="col-md-6 w3l-special-grid">
+          <div class="col-md-6 agileits-special-info-3">
+            <h4>Envíanos un mensaje</h4>
+          </div>
+          <div class="col-md-6 w3ls-special-img wthree-img7">
+            <div class="w3ls-special-text effect-1">
+              <!-- <h4>$ 14.00</h4>-->
+            </div>
+          </div>
+          </a>
+          <div class="clearfix"> </div>
+        </div>
+        <div class="col-md-6 w3l-special-grid">
+          <div class="col-md-6 agileits-special-info-4">
+            <h4>Preguntas Frecuentes</h4>
+          </div>
+          <div class="col-md-6 w3ls-special-img wthree-img8">
+            <div class="w3ls-special-text effect-1">
+              <!-- <h4>$ 21.00</h4>-->
+            </div>
+          </div>
+        
+          <div class="clearfix"> </div>
+        </div>                
+        
+        <div class="clearfix"> </div>
+      </div>
+    </div>
+  </div>
+<!-- //special -->
+
+<!-- Footer -->
+ <div class="copyrights">
+  <div class="container">
+    <div class="copyright">
+      <p>&copy; 2018 VentasBap. Diseñado por <a href="http://w3layouts.com/" target="_blank">W3layouts</a> | Modificado por VentasBap </p>
+    </div>
+    <div class="social-icons">
+      <ul>
+        <!--<li><a href="#" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>-->
+        <li><a href="https://twitter.com/ventasbap?lang=es" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.instagram.com/ventasbap/?hl=es-la" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+      </ul>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+<!-- Footer --> 
+
+<!-- Owl-Carousel-JavaScript -->
+  <script src="[% static 'js/VentasBap_owl.carousel.js' %}"></script>
+  <script>
+    $(document).ready(function() {
+      $("#owl-demo").owlCarousel ({
+        items : 5,
+        lazyLoad : true,
+        autoPlay : true,
+        pagination : true,
+      });
+    });
+  </script>
+<!-- //Owl-Carousel-JavaScript -->  
+
+<!-- flexSlider -->
+<script defer src="{% static 'js/VentasBap_jquery.flexslider.js' %}"></script>
+<script type="text/javascript">
+$(window).load(function(){
+  $('.flexslider').flexslider({
+  animation: "slide",
+  start: function(slider){
+    $('body').removeClass('loading');
+  }
+  });
+});
+</script>
+<!-- //flexSlider -->
+
+
+<!-- start-smoth-scrolling -->
+<script src="{% static 'js/VentasBap_SmoothScroll.min.js' %}"></script>
+
+<script type="text/javascript" src="{% static 'js/VentasBap_move-top.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/VentasBap_easing.js' %}"></script>
+  <script type="text/javascript">
+    jQuery(document).ready(function ($) {
+      $(".scroll").click(function (event) {
+        event.preventDefault();
+        $('html,body').animate({
+          scrollTop: $(this.hash).offset().top
+        }, 1000);
+      });
+    });
+  </script>
+
+  <!-- here stars scrolling icon -->
+  <script type="text/javascript">
+    $(document).ready(function() {
+      /*
+        var defaults = {
+        containerID: 'toTop', // fading element id
+        containerHoverID: 'toTopHover', // fading element hover id
+        scrollSpeed: 1200,
+        easingType: 'linear' 
+        };
+      */
+                
+      $().UItoTop({ easingType: 'easeOutQuart' });
+                
+      });
+  </script>
+<!-- //here ends scrolling icon -->
+
+<!-- for bootstrap working -->
+  <script src="{% static 'js/VentasBap_bootstrap.js' %}"></script>
+<!-- //for bootstrap working -->
 {% endblock %}
 
-<!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <!-- Required meta tags -->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-      <!-- Bootstrap CSS -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-      <link rel='stylesheet' href='{% static "css/main.css" %}' >
-    </head>
-    <body>
-      <div class='text-center'>
-          <h1>{{ title }}</h1>
-          <h1>Hello, world we're working!</h1>
-      </div>
-      <div class='container'>
-        <div class='row'>
-          <div class='col'>
-              <img src="{% static 'img/beach.jpg' %}" class='img-fluid' />
-              <p>{{ content }}</p>
-          </div>
-        </div>
-        {% if request.user.is_authenticated %}
-        <div class='row'>
-          <div class='col'>
-          <h1>Premium</h1>
-          {{ premium_content }}
-          </div>
-        </div>
-        {% endif %}
-      </div>
-      <!-- Optional JavaScript -->
-      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-    </body>
-  </html>

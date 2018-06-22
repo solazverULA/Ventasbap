@@ -27,15 +27,15 @@ DEBUG = True
 ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1']
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'julionml78@gmail.com'
-EMAIL_HOST_PASSWORD = 'Motog-shock'
+EMAIL_HOST_USER = 'ventasbap.merida@gmail.com'
+EMAIL_HOST_PASSWORD = 'vb2112vb'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'julio <julionml78@gmail.com>'
+DEFAULT_FROM_EMAIL = 'ventasbap <ventasbap.merida@gmail.com>'
 BASE_URL = '127.0.0.1:8000'
 
 MANAGERS = (
-    ('Julio Mejias', "julionml78@gmail.com"),
+    ('VentasBap', "ventasbap.merida@gmail.com"),
 )
 
 ADMINS = MANAGERS

@@ -67,7 +67,7 @@ class User(AbstractBaseUser):
     full_name = models.CharField(max_length=255, blank=True, null=True)
     city = models.CharField(max_length=255, blank=True, null=True)
     ci = models.PositiveIntegerField(null=True)
-    sex = models.NullBooleanField()
+    sex = models.CharField(max_length=255)
     bday = models.DateField(null=True)
     cellphone = models.PositiveIntegerField(null=True)
     is_active = models.BooleanField(default=True)  # can login
