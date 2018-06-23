@@ -72,6 +72,7 @@ urlpatterns = [
     url(r'^settings/email/$', MarketingPreferenceUpdateView.as_view(), name='marketing-pref'),
     url(r'^webhooks/mailchimp/$', MailchimpWebhookView.as_view(), name='webhooks-mailchimp'),
     url(r'^admin/', admin.site.urls),
+
 ]
 
 

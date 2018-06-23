@@ -217,7 +217,18 @@
 </div> -->
 
 <!-- special -->
-<a href="{% url 'cart:home' %}"><div class="cart"><img src="{% static 'img/cart.png' %}"></div></a>
+
+  <br><br><br>
+  <div class="col-md-6" style="margin-top: 3%">
+    {% include 'search/snippets/search-form.html' %}
+  </div>
+
+  <div class="col-md-3">
+    <a href="{% url 'cart:home' %}"><div class="cart"><img src="{% static 'img/cart.png' %}"></div></a><br><br>
+  </div>
+  <div class="col-md-3"><img src="{% static 'img/Logo.jpg' %}"></div>
+  <br><br><br><br><br>    
+
   <div class="special">
     <div class="container">
     <h2 class="heading">Artículos <span>Disponibles</span></h2>
@@ -328,12 +339,14 @@
           </div>
         
           <div class="clearfix"> </div>
-        </div>                
-        
+        </div>  
+              
         <div class="clearfix"> </div>
       </div>
     </div>
   </div>
+
+
 <!-- //special -->
 
 <!-- Footer -->
