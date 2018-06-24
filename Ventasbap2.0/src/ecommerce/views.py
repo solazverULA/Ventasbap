@@ -21,7 +21,7 @@ def about_page(request):
         "title":"About Page",
         "content":" Welcome to the about page."
     }
-    return render(request, "home_page.html", context)
+    return render(request, "about/about.html", context)
 
 def contact_page(request):
     contact_form = ContactForm(request.POST or None)
@@ -53,6 +53,7 @@ def faq_page(request):
         "content":" Welcome to the FAQ page."
     }
     return render(request, "faq/faq.html", context)
+
 
 
 
