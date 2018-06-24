@@ -74,7 +74,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 		<!-- //cart details -->
-		<!-- search -->
+		<!-- search --><!--
 		<div class="search_w3ls_agileinfo">
 			<div class="cd-main-header">
 				<ul class="cd-header-buttons">
@@ -86,7 +86,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<input name="Search" type="search" placeholder="Click enter after typing...">
 				</form>
 			</div>
-		</div>
+		</div>-->
 		<!-- //search -->
 		<div class="clearfix"></div>
 		<!-- /banner_inner -->
@@ -128,6 +128,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 
 	</div>-->
+
+	<div class="col-md-12" style="margin-top: 3%">
+   		{% include 'search/snippets/search-form.html' %}
+ 	</div>
 	<div class="mid_services">
 		<div class="col-md-12 according_inner_grids">
 			<h3 class="heading two">Preguntas Frecuentes</h3>
@@ -313,13 +317,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</a>
 					</li>
 					<li>
-						<a href="#" class="twitter">
+						<a href="https://twitter.com/ventasbap?lang=es" target="_blank" class="twitter">
 							<div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
 							<div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div>
 						</a>
 					</li>
 					<li>
-						<a href="#" class="instagram">
+						<a href="https://www.instagram.com/ventasbap/?hl=es-la" target ="_blank" class="instagram">
 							<div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
 							<div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div>
 						</a>
@@ -459,7 +463,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 	</script>
 	<!--search-bar-->
-	<script src="js/search.js"></script>
+	<script src="{% static 'js/search.js' %}"></script>
 	<!--//search-bar-->
 	<!-- start-smoth-scrolling -->
 	<script type="text/javascript" src="{% static 'js/move-top.js' %}"></script>

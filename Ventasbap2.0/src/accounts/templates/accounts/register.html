@@ -48,22 +48,29 @@
 	<div class="content-w3ls">
 
 		<div class="form_w3layouts">
-			<form method="post" class="agile_form" >
+			<form method="post" class="agile_form" id="register">
   			{% csrf_token %}
   			{{ signup_form.non_field_errors }}
 
+  				<ul>
+					<li>-Todos los campos son obligatorios</li>
+					<li>-Longitud mínima para la contraseña: 8 caracteres</li>
+				</ul>
+				<br>
+
 				<div class="agileits-left">
-					<input type="text" name="full_name" class="name" placeholder="Nombre y Apellido" required="">
+					<input type="text" name="full_name" class="name" placeholder="Nombre y Apellido" required="" oninvalid="this.setCustomValidity('Este Campo es obligatorio')" oninput="setCustomValidity('')">
 					{{ form.full_name.errors }}
 					
 				</div>
+				
 				<div class="agileits-left">
-					<input type="text" name="ci" class="Id" placeholder="Cédula de Identidad" required="">
+					<input type="text" name="ci" class="Id" placeholder="Cédula de Identidad" required="" oninvalid="this.setCustomValidity('Este Campo es obligatorio')" oninput="setCustomValidity('')">
 					{{ form.ci.errors }}
 					
 				</div>
 				<div class="agileits-left">
-					<input type="text" name="sex" class="gender" placeholder="Género" required="">
+					<input type="text" name="sex" class="gender" placeholder="Género" required="" oninvalid="this.setCustomValidity('Este Campo es obligatorio')" oninput="setCustomValidity('')">
 					{{ form.sex.errors }}
 					
 				</div><!--
@@ -75,22 +82,22 @@
 					{% endif %}
 				</div>-->
 				<div class="agileits-left s2-w3ls">
-					<input type="text" name="bday" class="cellphone" placeholder="Fecha de Nacimiento (AAAA-MM-DD)" required="">
+					<input type="text" name="bday" class="cellphone" placeholder="Fecha de Nacimiento (AAAA-MM-DD)" required="" oninvalid="this.setCustomValidity('Este Campo es obligatorio')" oninput="setCustomValidity('')">
 					{{ form.bday.errors }}
 					
 				</div>
 				<div class="agileits-left s2-w3ls">
-					<input type="text" name="cellphone" class="cellphone" placeholder="Número de Teléfono Móvil" required="">
+					<input type="text" name="cellphone" class="cellphone" placeholder="Número de Teléfono Móvil" required="" oninvalid="this.setCustomValidity('Este Campo es obligatorio')" oninput="setCustomValidity('')">
 					{{ form.cellphone.errors }}
 					
 				</div>
 				<div class="agileits-left">
-					<input type="text" name="city" class="City" placeholder="Ciudad Donde Vive" required="">
+					<input type="text" name="city" class="City" placeholder="Ciudad Donde Vive" required="" oninvalid="this.setCustomValidity('Este Campo es obligatorio')" oninput="setCustomValidity('')">
 					{{ form.city.errors }}
 					
 				</div>
 				<div class="agileits-left">
-					<input type="email" name="email" class="email" placeholder="Correo Electrónico" required="">
+					<input type="email" name="email" class="email" placeholder="Correo Electrónico" required="" oninvalid="this.setCustomValidity('Este Campo es obligatorio')" oninput="setCustomValidity('')">
 					{{ form.email.errors }}
 				</div>
 				<!--<div class="agileits-left">
@@ -98,12 +105,12 @@
 				</div>-->
 				<br>
 				<div class="agileits-left">
-					<input type="password" name="password1" class="password" placeholder="Contraseña" required="">
+					<input type="password" name="password1" class="password" placeholder="Contraseña" required="" oninvalid="this.setCustomValidity('Este Campo es obligatorio')" oninput="setCustomValidity('')">
 					{{ form.password1.errors }}
 					
 				</div>
 				<div class="agileits-left">
-					<input type="password" name="password2" class="password" placeholder="Confirmación de contraseña" required="">
+					<input type="password" name="password2" class="password" placeholder="Confirmación de contraseña" required="" oninvalid="this.setCustomValidity('Este Campo es obligatorio')" oninput="setCustomValidity('')">
 					{{ form.password2.errors }}
 					
 				</div>
@@ -112,7 +119,6 @@
 					<input name="register" type="submit" value="REGISTRATE">
 				</div>
 			</form>
-
 		</div>
 		<div class="clear"></div>
 	</div>
