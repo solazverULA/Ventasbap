@@ -89,18 +89,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		<!-- //search -->
 		<div class="clearfix"></div>
-		<!-- /banner_inner --><!--
+		<!-- /banner_inner -->
 		<div class="services-breadcrumb_w3ls_agileinfo">
 			<div class="inner_breadcrumb_agileits_w3">
 
 				<ul class="short">
-					<li><a href="index.html">Iniciar Sesión</a><i>|</i></li>
-					<li><a href="index.html">Registrarse</a><i>|</i></li>
-					<li><a href="index.html">Inicio</a><i>|</i></li>
-					<li>Contáctanos</li>
+					<li><a href="{% url 'login' %}">Iniciar Sesión</a><i>|</i></li>
+					<li><a href="{% url 'register' %}">Registrarse</a><i>|</i></li>
+					<li><a href="{% url 'home' %}">Inicio</a><i>|</i></li>
+					<li>Preguntas Frecuentes</li>
 				</ul>
 			</div>
-		</div>-->
+		</div>
 		<!-- //banner_inner -->
 	</div>
 
@@ -337,11 +337,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="col-md-4 sign-gd">
 						<h4>Nuestra <span>Información</span> </h4>
 						<ul>
-							<li><a href="index.html">Inicio</a></li>
-							<li><a href="about.html">¿Quiénes Somos?</a></li>
-							<li><a href="404.html">Iniciar Sesión</a></li>
-							<li><a href="404.html">Registrarse</a></li>
-							<li><a href="contact.html">Contáctanos</a></li>
+							<li><a href="{% url 'home' %}">Inicio</a></li>
+							<li><a href="{% url 'about' %}">¿Quiénes Somos?</a></li>
+							<li><a href="{% url 'login' %}">Iniciar Sesión</a></li>
+							<li><a href="{% url 'register' %}">Registrarse</a></li>
+							<li><a href="{% url 'contact' %}">Contáctanos</a></li>
 						</ul>
 					</div>
 
