@@ -47,6 +47,13 @@ def contact_page(request):
     #     print(request.POST.get('content'))
     return render(request, "contact/view.html", context)
 
+def faq_page(request):
+    context = {
+        "title":"FAQ Page",
+        "content":" Welcome to the FAQ page."
+    }
+    return render(request, "faq/faq.html", context)
+
 
 
 
