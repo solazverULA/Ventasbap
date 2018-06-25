@@ -28,7 +28,7 @@ ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1']
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'ventasbap.merida@gmail.com'
-EMAIL_HOST_PASSWORD = 'vb2112vb'
+EMAIL_HOST_PASSWORD = '2121vbjp99'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'ventasbap <ventasbap.merida@gmail.com>'

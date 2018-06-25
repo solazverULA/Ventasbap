@@ -69,7 +69,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <nav>
             <ul class="nav navbar-nav mr-auto">
-              <li><a href="{{ account_url }}#billing">Billing</a></li>
+              <li><a href="{% url 'account:home' %}#billing">Billing</a></li>
               <li><a href="{% url 'account:user-product-history' %}">History</a></li>
               <li><a href="{% url 'library' %}">Library</a></li>
               <br><br>

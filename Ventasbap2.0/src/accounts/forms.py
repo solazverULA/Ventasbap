@@ -123,22 +123,23 @@ class LoginForm(forms.Form):
                 ## not active, check email activation
                 link = reverse("account:resend-activation")
                 reconfirm_msg = """Go to <a href='{resend_link}'>
-                resend confirmation email</a>.
+                reenviar email de confirmación</a>.
                 """.format(resend_link = link)
                 confirm_email = EmailActivation.objects.filter(email=email)
                 is_confirmable = confirm_email.confirmable().exists()
                 if is_confirmable:
-                    msg1 = "Please check your email to confirm your account or " + reconfirm_msg.lower()
+                    msg1 = "Por favor revisa tu email para activar tu cuenta " + reconfirm_msg.lower()
                     raise forms.ValidationError(mark_safe(msg1))
                 email_confirm_exists = EmailActivation.objects.email_exists(email).exists()
                 if email_confirm_exists:
-                    msg2 = "Email not confirmed. " + reconfirm_msg
+                    msg2 = "Email no confirmado. " + reconfirm_msg
                     raise forms.ValidationError(mark_safe(msg2))
                 if not is_confirmable and not email_confirm_exists:
-                    raise forms.ValidationError("This user is inactive.")
+                    raise forms.ValidationError("Usuario Inactivo.")
         user = authenticate(request, username=email, password=password)
         if user is None:
-            raise forms.ValidationError("Invalid credentials")
+            raise forms.ValidationError("Datos Inválidos")
+
         login(request, user)
         self.user = user
         return data

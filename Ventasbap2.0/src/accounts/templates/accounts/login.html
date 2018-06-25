@@ -47,20 +47,21 @@
 			<p> <br> </p>
 			<form action="#" method="post">
   			{% csrf_token %}
+  			{{ form.non_field_errors }}
 
 				<div class="pom-agile">
 					<span class="fa fa-user-o" aria-hidden="true"></span>
 					<input placeholder="Email" name="email" class="user" type="text" required="">
-					{% if form.email.errors %}
-						<h1>usuario inválido</h1>
-					{% endif %}
+					<div class="forgot-w3l">
+						{{ form.email.errors}}
+					</div>
 				</div>
 				<div class="pom-agile">
 					<span class="fa fa-key" aria-hidden="true"></span>
 					<input placeholder="Contraseña" name="password" class="pass" type="password" required="">
-					{% if form.password.errors %}
-						<h1>error contraseña</h1>
-					{% endif %}
+					<div class="forgot-w3l">
+						{{ form.password.errors}}
+					</div>
 				</div>
 				<div class="sub-w3l">
 					<div class="sub-agile">

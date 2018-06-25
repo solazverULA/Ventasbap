@@ -56,11 +56,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
           <nav>
             <ul>
-              <li><a href="index.html" class="active">Home</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="404.html">Team</a></li>
-              <li><a href="shop.html">Shop Now</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a href="{% url 'home' %}" class="active">Home</a></li>
+              <li><a href="{% url 'about' %}">About</a></li>
+              <li><a href="{% url 'faq' %}">Shop Now</a></li>
             </ul>
           </nav>
         </div>
@@ -73,7 +71,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <form action="#" method="post" class="last">
               <input type="hidden" name="cmd" value="_cart">
               <input type="hidden" name="display" value="1">
-              <button class="top_shoe_cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+
+              <!--<button class="top_shoe_cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>-->
+             <a href="{% url 'cart:home' %}"><div class="cart"><img src="{% static 'img/cart.png' %}" width="80" height="80"></div></a>
             </form>
           </div>
         </div>
@@ -100,16 +100,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <div class="inner_breadcrumb_agileits_w3">
 
         <ul class="short">
-          <li><a href="index.html">Iniciar Sesión</a><i>|</i></li>
-          <li><a href="index.html">Registrarse</a><i>|</i></li>
-          <li><a href="index.html">Inicio</a><i>|</i></li>
+          <li><a href="{% url 'login' %}">Iniciar Sesión</a><i>|</i></li>
+          <li><a href="{% url 'register' %}">Registrarse</a><i>|</i></li>
+          <li><a href="{% url 'home' %}">Inicio</a><i>|</i></li>
           <li>Contáctanos</li>
         </ul>
       </div>
     </div>
     <!-- //banner_inner -->
   </div>
-
+  <div class="col-md-12" style="margin-top: 3%">
+      {% include 'search/snippets/search-form.html' %}
+  </div><br><br><br><br>
   <!-- //banner -->
   <!-- top Products -->
   <div class="ads-grid_shop">
@@ -120,16 +122,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="col-md-7 contact_grid_right">
           <h6>Por favor llena el siguiente formulario.</h6>
           <form action="#" method="post">
-            <div class="col-md-6 col-sm-6 contact_left_grid">
-              <input type="text" name="Name" placeholder="Nombre" required="">
-              <input type="email" name="Email" placeholder="Email" required="">
-            </div>
+            <div class="col-md-12 col-sm-12 contact_left_grid">
+              <input type="text" name="fullname" placeholder="Nombre" required="">
+              <input type="email" name="email" placeholder="Email" required="">
+            </div><!--
             <div class="col-md-6 col-sm-6 contact_left_grid">
               <input type="text" name="Telephone" placeholder="Teléfono" required="">
               <input type="text" name="Subject" placeholder="Tema" required="">
-            </div>
+            </div>--->
             <div class="clearfix"> </div>
-            <textarea name="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Mensaje...</textarea>
+            <textarea name="content" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Mensaje...</textarea>
             <input type="submit" value="Enviar">
             <input type="reset" value="Borrar">
           </form>
