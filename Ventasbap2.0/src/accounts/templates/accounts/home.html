@@ -1,6 +1,124 @@
 {% extends "base.html" %}
 
+{% load static %}
+
+{% block title %}<title>Perfil</title>{% endblock %}
+
+
+{% block base_head %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="{% static 'assets/demo.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/sidebar-collapse.css' %}">
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+
+{% endblock %}
+
+
 {% block content %}
+
+<aside class="sidebar-left-collapse">
+
+    <a href="{% url 'home' %}"><img src="{% static 'img/Logo1.png' %} " width="120" height="120"></a>
+
+    <div class="sidebar-links">
+
+      <div class="link-yellow">
+
+        <a href="#">
+          <i class="fa fa-user"></i>Detalles de la Cuenta
+        </a>
+
+        <ul class="sub-links">
+          <li><a href="{% url 'account:user-update' %}">Actualizar Datos</a></li>
+          <li><a href="{% url 'password_change' %}">Cambiar contraseña</a></li>
+          <li><a href="{% url 'library' %}">Biblioteca de compras</a></li>
+        </ul>
+
+      </div>
+
+      <div class="link-red">
+
+        <a href="#">
+          <i class="fa fa-truck"></i>Compras
+        </a>
+
+        <ul class="sub-links">
+          <li><a href="{% url 'orders:list' %}">Ordénes de Compra</a></li>
+          <li><a href="{% url 'billing-payment-method' %}">Métodos de Pago</a></li>
+          <li><a href="{% url 'addresses' %}">Direcciones para envíos</a></li>
+        </ul>
+
+      </div>
+
+      <div class="link-green">
+
+        <a href="#">
+          <i class="fa fa-book"></i>Historial
+        </a>
+
+        <ul class="sub-links">
+          <li><a href="{% url 'account:user-product-history' %}">Productos</a></li>
+
+        </ul>
+
+      </div>
+
+      <div class="link-blue">
+
+        <a href="#">
+          <i class="fa fa-comments"></i>Soporte
+        </a>
+
+        <ul class="sub-links">
+          <li><a href="{% url 'about' %}">Acerca de nosotros</a></li>
+          <li><a href="{% url 'contact' %}">Contáctanos</a></li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </aside>
+<center>
+  <div class="main-content">
+
+    <div class="menu">
+
+      <img class="arrow left" src="{% static 'assets/images/demo-arrow-left.png' %}" alt="arrow" height="120">
+    
+      <strong><h1 style="color: black">Ventasbap</h1></strong>
+      <p align="justify">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc </p>
+
+
+    </div>
+
+  </div>
+</center>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>
+
+    $(function () {
+
+      var links = $('.sidebar-links > div');
+
+      links.on('click', function () {
+
+        links.removeClass('selected');
+        $(this).addClass('selected');
+
+      });
+    });
+
+  </script>
+
+{% endblock %}
+
+
 <div class='row'>
 <div class='col-12'>
 <h1>Account</h1>
@@ -79,6 +197,3 @@
 
 
 </div>
-
-
-{% endblock %}
