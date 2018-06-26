@@ -94,6 +94,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <li><a href="{% url 'login' %}">Iniciar Sesión</a><i>|</i></li>
                 <li><a href="{% url 'register' %}">Registrarse</a><i>|</i></li>
                 <li><a href="{% url 'home' %}">Inicio</a><i>|</i></li>
+                <li><a href="{% url 'products:list' %}">Productos Dama</a><i>|</i></li>
                 <li>Carrito</li>
         </ul>
       </div>
@@ -161,7 +162,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </tr>
               <tr>
                 <td colspan="2"></td>
-                <td><a class='btn btn-lg btn-success' href='{% url "home" %}#articulos'>Añadir Productos</a></td>
+                <td><a class='btn btn-lg btn-success' href='{% url 'products:list' %}'>Añadir Productos</a></td>
             </tr>
           </div><!--
           <div class="col-md-8 address_form">
