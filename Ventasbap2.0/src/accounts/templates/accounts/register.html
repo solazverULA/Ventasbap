@@ -122,8 +122,13 @@
 			<br>
 			<center>
 					<div>
+
+         			{% if request.user.is_authenticated %}
+						<a href="{% url 'home' %}"><font color="black">Inicio</font></a>
+					{% else %}
 						<a href="{% url 'home' %}"><font color="black">Inicio</font></a> |
 						<a href="{%url 'login' %}"><font color="black">Iniciar Sesión</font></a>
+					{% endif %}
 					</div>
 			</center>
 		</div>
