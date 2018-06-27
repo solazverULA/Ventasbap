@@ -77,7 +77,7 @@ def checkout_home(request):
         return redirect("cart:home")  
     
     login_form = LoginForm(request=request)
-    guest_form = GuestForm(request=request)
+    #guest_form = GuestForm(request=request)
     address_form = AddressCheckoutForm()
     billing_address_id = request.session.get("billing_address_id", None)
 
@@ -125,7 +125,7 @@ def checkout_home(request):
         "object": order_obj,
         "billing_profile": billing_profile,
         "login_form": login_form,
-        "guest_form": guest_form,
+        #"guest_form": guest_form,
         "address_form": address_form,
         "address_qs": address_qs,
         "has_card": has_card,
