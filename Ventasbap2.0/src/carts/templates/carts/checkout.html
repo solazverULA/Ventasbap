@@ -62,6 +62,9 @@ entra2
             entra6
                 <!-- enter credit card here -->
                 <div class='stripe-payment-form' data-token='{{ publish_key }}' data-next-url='{{ request.build_absolute_uri }}' data-btn-title='Add Payment Method'></div>
+
+                {% include 'billing/templates/billing/payment-method.html'%}
+
             {% else %}
             entra7
                 <h1>Finalize Checkout</h1>
