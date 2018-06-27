@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login, get_user_model
+from django.core.mail import send_mail
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render,redirect
 
@@ -24,28 +25,21 @@ def about_page(request):
     return render(request, "about/about.html", context)
 
 def contact_page(request):
-    contact_form = ContactForm(request.POST or None)
-    context = {
-        "title":"Contact",
-        "content":" Welcome to the contact page.",
-        "form": contact_form,
-    }
-    if contact_form.is_valid():
-        print(contact_form.cleaned_data)
-        if request.is_ajax():
-            return JsonResponse({"message": "Thank you for your submission"})
+    if request.method == 'GET':
 
-    if contact_form.errors:
-        errors = contact_form.errors.as_json()
-        if request.is_ajax():
-            return HttpResponse(errors, status=400, content_type='application/json')
+        form = ContactForm()
+    else:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            from_email = form.cleaned_data['from_email']
+            message = form.cleaned_data['message']
+            try:
+                send_mail(subject, message, from_email, ['ventasbap@gmail.com'])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
 
-    # if request.method == "POST":
-    #     #print(request.POST)
-    #     print(request.POST.get('fullname'))
-    #     print(request.POST.get('email'))
-    #     print(request.POST.get('content'))
-    return render(request, "contact/view.html", context)
+    return render(request, "contact/view.html")
 
 def faq_page(request):
     context = {

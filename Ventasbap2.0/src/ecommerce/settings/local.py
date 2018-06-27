@@ -176,7 +176,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn", "media_root")
 
 
-
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 

@@ -184,7 +184,7 @@ PROTECTED_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn", "protecte
 
 
 
-
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 
