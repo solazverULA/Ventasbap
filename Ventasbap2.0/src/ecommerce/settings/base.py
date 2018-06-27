@@ -124,15 +124,10 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
-'default': {
-# Using PostgreSQL database:
-'ENGINE':'django.db.backends.postgresql',
-'NAME': 'VENTASBAP_BDD',
-'USER': 'ventasbap',
-'PASSWORD': '123ventasbap',
-'HOST': 'localhost',
-'PORT': '',
-}
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
 
 
