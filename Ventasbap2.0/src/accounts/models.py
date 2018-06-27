@@ -189,7 +189,7 @@ class EmailActivation(models.Model):
     def send_activation(self):
         if not self.activated and not self.forced_expired:
             if self.key:
-                base_url = getattr(settings, 'BASE_URL', 'https://www.pythonecommerce.com')
+                base_url = getattr(settings, 'BASE_URL', 'https://www.ventasbap.com')
                 key_path = reverse("account:email-activate", kwargs={'key': self.key})  # use reverse
                 path = "{base}{path}".format(base=base_url, path=key_path)
                 context = {
@@ -231,11 +231,3 @@ def post_save_user_create_reciever(sender, instance, created, *args, **kwargs):
 post_save.connect(post_save_user_create_reciever, sender=User)
 
 
-class GuestEmail(models.Model):
-    email = models.EmailField()
-    active = models.BooleanField(default=True)
-    update = models.DateTimeField(auto_now=True)
-    timestamp = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.email

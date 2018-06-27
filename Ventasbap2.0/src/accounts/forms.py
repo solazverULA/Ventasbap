@@ -6,7 +6,7 @@ from django.utils.safestring import mark_safe
 
 User = get_user_model()
 
-from .models import EmailActivation, GuestEmail
+from .models import EmailActivation
 
 
 class ReactivateEmailForm(forms.Form):
@@ -52,11 +52,12 @@ class UserAdminCreationForm(forms.ModelForm):
 
 
 class UserDetailChangeForm(forms.ModelForm):
-    full_name = forms.CharField(label='Name', required=False, widget=forms.TextInput(attrs={"class": 'form-control'}))
-
+    full_name = forms.CharField(label='Nombre', required=False, widget=forms.TextInput(attrs={"class": 'form-control'}))
+    email =forms.EmailField(label='Email', required=False, widget=forms.TextInput(attrs={"class": 'form-control'}))
+    cellphone = forms.NumberInput()
     class Meta:
         model = User
-        fields = ['full_name']
+        fields = ['full_name', 'email', 'cellphone']
 
 
 
@@ -79,26 +80,7 @@ class UserAdminChangeForm(forms.ModelForm):
 
 
 
-class GuestForm(forms.ModelForm):
-    #email    = forms.EmailField()
-    class Meta:
-        model = GuestEmail
-        fields = [
-            'email'
-        ]
 
-    def __init__(self, request, *args, **kwargs):
-        self.request = request
-        super(GuestForm, self).__init__(*args, **kwargs)
-
-    def save(self, commit=True):
-        # Save the provided password in hashed format
-        obj = super(GuestForm, self).save(commit=False)
-        if commit:
-            obj.save()
-            request = self.request
-            request.session['guest_email_id'] = obj.id
-        return obj
 
 
 

@@ -2,7 +2,7 @@ from django.conf import settings
 from django.db import models
 from django.db.models.signals import post_save, pre_save
 from django.core.urlresolvers import reverse
-from accounts.models import GuestEmail
+
 User = settings.AUTH_USER_MODEL
 
 # abc@teamcfe.com -->> 1000000 billing profiles
@@ -17,18 +17,14 @@ stripe.api_key = STRIPE_SECRET_KEY
 class BillingProfileManager(models.Manager):
     def new_or_get(self, request):
         user = request.user
-        guest_email_id = request.session.get('guest_email_id')
+
         created = False
         obj = None
         if user.is_authenticated():
             'logged in user checkout; remember payment stuff'
             obj, created = self.model.objects.get_or_create(
                             user=user, email=user.email)
-        elif guest_email_id is not None:
-            'guest user checkout; auto reloads payment stuff'
-            guest_email_obj = GuestEmail.objects.get(id=guest_email_id)
-            obj, created = self.model.objects.get_or_create(
-                                            email=guest_email_obj.email)
+
         else:
             pass
         return obj, created
@@ -162,7 +158,7 @@ class ChargeManager(models.Manager):
             return False, "No cards available"
         c = stripe.Charge.create(
               amount = int(order_obj.total * 100), # 39.19 --> 3919
-              currency = "usd",
+              currency = "BSs",
               customer =  billing_profile.customer_id,
               source = card_obj.stripe_id,
               metadata={"order_id":order_obj.order_id},

@@ -12,8 +12,8 @@ from django.utils.http import is_safe_url
 from django.utils.safestring import mark_safe
 
 from ecommerce.mixins import NextUrlMixin, RequestFormAttachMixin
-from .forms import LoginForm, RegisterForm, GuestForm, ReactivateEmailForm, UserDetailChangeForm
-from .models import GuestEmail, EmailActivation
+from .forms import LoginForm, RegisterForm,  ReactivateEmailForm, UserDetailChangeForm
+from .models import EmailActivation
 from .signals import user_logged_in
 
 
@@ -80,15 +80,6 @@ class AccountEmailActivateView(FormMixin, View):
         return render(self.request, 'registration/activation-error.html', context)
 
 
-class GuestRegisterView(NextUrlMixin,  RequestFormAttachMixin, CreateView):
-    form_class = GuestForm
-    default_next = '/register/'
-
-    def get_success_url(self):
-        return self.get_next_url()
-
-    def form_invalid(self, form):
-        return redirect(self.default_next)
 
 
 class LoginView(NextUrlMixin, RequestFormAttachMixin, FormView):

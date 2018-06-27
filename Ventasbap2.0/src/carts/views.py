@@ -3,8 +3,8 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
 
-from accounts.forms import LoginForm, GuestForm
-from accounts.models import GuestEmail
+from accounts.forms import LoginForm
+
 
 from addresses.forms import AddressCheckoutForm
 from addresses.models import Address

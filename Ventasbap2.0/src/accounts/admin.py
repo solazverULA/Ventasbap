@@ -6,7 +6,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
 
 from .forms import UserAdminCreationForm, UserAdminChangeForm
-from .models import GuestEmail, EmailActivation
+from .models import EmailActivation
 
 User = get_user_model()
 
@@ -56,10 +56,3 @@ class EmailActivationAdmin(admin.ModelAdmin):
 admin.site.register(EmailActivation, EmailActivationAdmin)
 
 
-class GuestEmailAdmin(admin.ModelAdmin):
-    search_fields = ['email']
-    class Meta:
-        model = GuestEmail
-
-
-admin.site.register(GuestEmail, GuestEmailAdmin)
