@@ -3,6 +3,7 @@
 {% block title %}<title>Dirección de Envío</title>{% endblock %}
 {% block content %}
 {% if not billing_profile %}
+entra1
     <div class='row text-center'>
     <div class='col-12 col-md-6'>
         <p class='lead'>Login</p>
@@ -17,9 +18,10 @@
 
     </div>
 
-{% else %}
-            
+{% else %} 
+entra2
         {% if not object.shipping_address and shipping_address_required %}
+        entra3
 
          <div class='row'>
             <div class='col-12'>
@@ -37,6 +39,7 @@
 
 
         {% elif not object.billing_address %}
+        entra4
         <div class='row'>
             <div class='col-12'>
                 <p class='lead'>Dirección de Facturación</p>
@@ -54,11 +57,13 @@
          
         </div>
         {% else %}
+        entra5
             {% if not has_card %}
+            entra6
                 <!-- enter credit card here -->
                 <div class='stripe-payment-form' data-token='{{ publish_key }}' data-next-url='{{ request.build_absolute_uri }}' data-btn-title='Add Payment Method'></div>
-
             {% else %}
+            entra7
                 <h1>Finalize Checkout</h1>
                 <p>Cart Items: {% for product in object.cart.products.all %}{{ product }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
                 <p>Shipping Address: {{ object.shipping_address_final }}</p>
